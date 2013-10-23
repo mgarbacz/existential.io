@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>existential.io</title>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+        rel="stylesheet">
+  <link href="ss/app.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">existential.io</a>
+    </div>
+    <p class="navbar-text">
+      A guided canvas to draw your data into - directly, dynamically, simply.
+    </p>
+    <ul class="nav navbar-nav pull-right">
+      <li>
+        <a href="#modal-about" data-toggle="modal">About</a>
+      </li>
+      <li>
+        <a href="https://github.com/mgarbacz/existential.io"
+           target="_blank">Source</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="modal fade" id="modal-about" tabindex="-1" role="dialog"
+       aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"
+                  aria-hidden="true">&times;</button>
+          <h4 class="modal-title">About existential.io</h4>
+        </div>
+        <div class="modal-body">
+          <h5>Why do this?</h5>
+          <p>Visualizing data is a powerful way to discover meaning. Current
+            methods are lackluster because none allow for both direct
+            manipulation of visuals and dynamic loading of data. Drawing by
+            hand is direct but means a new drawing for every set of data.
+            Writing code creates dynamic visuals but requires programming
+            knowledge and blind manipulation of symbols.<p>
+          <h5>How does it work?</h5>
+          <p>It doesn't yet - so stay tuned!</p>
+        </div>
+        <div class="modal-footer">
+          <small>
+            Built for
+            <a href="//railsrumble.com/entries/561-draw-your-data"
+               target="_blank">
+              Rails Rumble 2013</a>
+            as Draw Your Data
+            </small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-3" id="controls">
+        <section class="row" id="controls-data">
+          <h5 class="text-info">Data</h5>
+          <dl class="dl-horizontal">
+            <dt class="text-muted" id="controls-data-input"><br><br>input</dt>
+            <dd>
+              <table class="table table-bordered table-condensed">
+                <thead>
+                  <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>4</td>
+                    <td>8</td>
+                    <td>6</td>
+                    <td>2</td>
+                    <td>7</td>
+                    <td>5</td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+        </section>
+        <section class="row" id="controls-steps">
+          <h5 class="text-info">Steps</h5>
+        </section>
+      </div>
+      <div class="col-xs-8 jumbotron" id="guided">
+        <h5 class="alert alert-step text-center"
+            id="guided-step">select a tool by shortcut or click</h5>
+        <canvas id="guided-canvas" width="800px" height="400px">
+          Your browser is not supported.
+        </canvas>
+      </div>
+      <div class="col-xs-1" id="shortcuts">
+        <section class="row">
+          <h5 class="text-info text-right">Draw</h5>
+          <dl class="dl-horizontal">
+            <dt class="text-muted" id="shortcut-draw-rect"
+                data-action="draw" data-tool="rect">rect</dt>
+            <dd><strong>r</strong></dd>
+            <dt class="text-muted" id="shortcut-draw-line"
+                data-action="draw" data-tool="line">line</dt>
+            <dd><strong>d</strong></dd>
+            <dt class="text-muted" id="shortcut-draw-circle"
+                data-action="draw" data-tool="circle">circle</dt>
+            <dd><strong>c</strong></dd>
+          </dl>
+        </section>
+        <section class="row">
+          <h5 class="text-info text-right">Adjust</h5>
+          <dl class="dl-horizontal">
+            <dt class="text-muted" id="shortcut-adjust-move"
+                data-action="adjust" data-tool="move">move</dt>
+            <dd><strong>x</strong></dd>
+            <dt class="text-muted" id="shortcut-adjust-scale"
+                data-action="adjust" data-tool="scale">scale</dt>
+            <dd><strong>s</strong></dd>
+            <dt class="text-muted" id="shortcut-adjust-rotate"
+                data-action="adjust" data-tool="rotate">rotate</dt>
+            <dd><strong>e</strong></dd>
+          </dl>
+        </section>
+        <section class="row">
+          <h5 class="text-info text-right">Flow</h5>
+          <dl class="dl-horizontal">
+            <dt class="text-muted" id="shortcut-flow-loop"
+                data-action="flow" data-tool="loop">loop</dt>
+            <dd><strong>l</strong></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+  </script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js">
+  </script>
+  <script src="js/app.js"></script>
+  <script>require('initialize');</script>
+</body>
+</html>

@@ -14,3 +14,5 @@ directly, dynamically, simply.
 
 [Demo] (http://dyd.r13.railsrumble.com)
 ---------------------------------------
+
+[MIT License] (LICENSE)
