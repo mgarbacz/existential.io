@@ -8,7 +8,7 @@ module.exports = class Canvas
     @height = @canvas.height
     # Create 9 snap points
     @snapPoints = [
-      #              x           y            name
+      #              x           y            id
       new SnapPoint  @width / 2, 0,           'top'
       new SnapPoint  0,          0,           'top-left'
       new SnapPoint  @width,     0,           'top-right'
@@ -19,6 +19,7 @@ module.exports = class Canvas
       new SnapPoint  0,          @height,     'bot-left'
       new SnapPoint  @width,     @height,     'bot-right'
     ]
+    @shapes = []
 
   init: ->
 
@@ -44,6 +45,14 @@ module.exports = class Canvas
       @context.stroke()
       @context.fill()
       @context.closePath()
+    for shape in @shapes
+      @context.strokeStyle = '#333333'
+      @context.fillStyle = '#5BC0DE'
+      @context.beginPath()
+      @context.rect shape.x, shape.y, shape.width, shape.height
+      @context.stroke()
+      @context.fill()
+      @context.closePath()
 
   drawRect: ->
     @canvas.addEventListener 'mousedown', (e) =>
@@ -65,8 +74,8 @@ module.exports = class Canvas
 
         if withinX and withinY
           # TODO - generalize this to any step
-          $('#controls-steps').append '<p id="rect-1"></p>'
-          writeStep point.name, point.name
+          $('#controls-steps').append '<p></p>'
+          writeStep point.name, point.id
 
           # Listen for mouse drags to draw rect
           window.addEventListener 'mousemove', (moveEvent) =>
@@ -91,6 +100,7 @@ module.exports = class Canvas
             @canvas.addEventListener 'mouseup', (e) =>
               # Stop listening for drag events
               window.removeEventListener 'mousemove', dragListener
+              @shapes.push new Shape(point.x, point.y, - (point.x - rectWidth), - (point.y - rectHeight), 'rect')
           # Found our snap point, can break from for loop
           break
 

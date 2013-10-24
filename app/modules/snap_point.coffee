@@ -1,4 +1,4 @@
 module.exports = class SnapPoint
-  constructor: (@x, @y, @name) ->
+  constructor: (@x, @y, @id) ->
     @radius = 4
-    console.log @name + ' x: ' + @x + ' y: ' + @y
+    console.log @id + ' x:' + @x + ' y:' + @y
