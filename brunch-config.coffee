@@ -11,9 +11,3 @@ exports.config =
       joinTo:
         'ss/app.css': /^app\/styles/
 
-  plugins:
-    sass:
-      debug: 'comments'
-      
-  sourceMaps: false
-
