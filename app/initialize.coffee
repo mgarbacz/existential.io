@@ -1,18 +1,19 @@
 Canvas = require 'modules/canvas'
+KeyCodes = require 'helpers/key_codes'
 
 # Check if key is a shortcut and select corresponding tool
 handleKeyDown = (keyCode, reporter) ->
   switch keyCode
     # Draw
-    when 82 then $('#shortcut-draw-rect').click()
-    when 68 then $('#shortcut-draw-line').click()
-    when 67 then $('#shortcut-draw-circle').click()
+    when KeyCodes.r then $('#shortcut-draw-rect').click()
+    when KeyCodes.d then $('#shortcut-draw-line').click()
+    when KeyCodes.c then $('#shortcut-draw-circle').click()
     # Adjust
-    when 88 then $('#shortcut-adjust-move').click()
-    when 83 then $('#shortcut-adjust-scale').click()
-    when 69 then $('#shortcut-adjust-rotate').click()
+    when KeyCodes.x then $('#shortcut-adjust-move').click()
+    when KeyCodes.s then $('#shortcut-adjust-scale').click()
+    when KeyCodes.e then $('#shortcut-adjust-rotate').click()
     # Flow
-    when 76 then $('#shortcut-flow-loop').click()
+    when KeyCodes.l then $('#shortcut-flow-loop').click()
 
 $ ->
   # Make sure canvas has proper height/width
