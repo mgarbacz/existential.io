@@ -21,7 +21,7 @@ module.exports = class Canvas
       new SnapPoint  @width,     @height,     'bot-right'
     ]
     @shapes = []
-    console.log(this)
+    #console.log(this)
 
   init: ->
     @rectWidth = 0
@@ -89,7 +89,7 @@ module.exports = class Canvas
     x = moveEvent.clientX - @bounds.left
     y = moveEvent.clientY - @bounds.top
 
-    console.log 'x: %s, y: %s', x, y
+    #console.log 'x: %s, y: %s', x, y
 
     @drawCanvas()
     @context.strokeStyle = '#333333'
