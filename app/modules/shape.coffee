@@ -1,3 +1,4 @@
 module.exports = class Shape
-  constructor: (@x, @y, @width, @height, @id) ->
-    console.log @id + ' x:' + @x + ' y:' + @y + ' w:' + @width + ' h:' + @height
+  constructor: (@x, @y, @width, @height, @start, @end, @id) ->
+    console.log('%s x:%s y:%s w:%s h:%s s:%s e:%s',
+      @id, @x, @y, @width, @height, @start, @end)
