@@ -13,5 +13,8 @@ module.exports = {
         presets: ['es2015']
       }
     }
+  },
+  resolve : {
+    extensions: ['.js']
   }
 }
