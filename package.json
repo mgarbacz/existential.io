@@ -2,6 +2,21 @@
   "name": "existential.io",
   "description": "A guided canvas to draw your data into - directly, dynamically, simply.",
   "version": "0.0.1",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgarbacz/existential.io.git"
+  },
+  "author": {
+    "name": "Michal Garbacz",
+    "email": "michal@garbacz.io",
+    "url": "michal.garbacz.io"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mgarbacz/existential.io/issues"
   }
 }
