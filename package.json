@@ -3,8 +3,13 @@
   "description": "A guided canvas to draw your data into - directly, dynamically, simply.",
   "version": "0.0.1",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack": "^1.12.13"
+  },
   "scripts": {
+    "start": "npm run serve",
+    "build": "./node_modules/.bin/webpack",
+    "serve": "./node_modules/.bin/webpack-dev-server --inline"
   },
   "repository": {
     "type": "git",
