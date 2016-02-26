@@ -10,4 +10,3 @@ exports.config =
     stylesheets:
       joinTo:
         'ss/app.css': /^app\/styles/
-
