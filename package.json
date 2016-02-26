@@ -18,7 +18,7 @@
   "scripts": {
     "start": "npm run serve",
     "build": "./node_modules/.bin/brunch build",
-    "build -p": "./node_modules/.bin/brunch build --production",
+    "buildp": "./node_modules/.bin/brunch build --production",
     "serve": "./node_modules/.bin/brunch watch --server"
   },
   "dependencies": {
