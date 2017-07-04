@@ -11,6 +11,6 @@ __existential.io__ allows you to
 discover the meaning in your data by giving you a guided canvas to draw it into -
 directly, dynamically, simply.
 
-[Demo] (http://existential.io.michgarbacz.com)
+[Demo](http://existential.io.michgarbacz.com)
 
-[MIT License] (LICENSE)
+[MIT License](LICENSE)
