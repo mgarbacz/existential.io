@@ -26,12 +26,23 @@ const handleKeyDown = function(keyCode, reporter) {
 
 $(function() {
   // Make sure canvas has proper height/width
-  const canvasElement = $('#guided-canvas');
-  canvasElement[0].width = canvasElement.width();
-  canvasElement[0].height = canvasElement.width() / 2;
+  const canvasWrapper = $('#guided-canvas');
+  const canvasEl = document.getElementById('guided-canvas');
+  const scale = window.devicePixelRatio;
+  const canvasSize = canvasWrapper.width();
+
+  // Set display size (css pixels)
+  canvasEl.style.width = `${Math.floor(canvasSize)}px`;
+  canvasEl.style.height = `${Math.floor(canvasSize / 2)}px`;
+
+  // Set actual size in memory, scaled by pixel density
+  canvasEl.width = Math.floor(canvasSize * scale);
+  canvasEl.height = Math.floor(canvasSize / 2 * scale);
+
+  const canvas = new Canvas(canvasEl, scale);
+  canvas.context.scale(scale, scale);
 
   // Load up the DYD magic
-  const canvas = new Canvas(canvasElement[0]);
   canvas.init();
 
   // Listen for keyboard events to check if shortcut

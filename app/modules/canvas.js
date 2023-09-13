@@ -2,7 +2,7 @@ import { Shape } from './shape';
 import { SnapPoint } from './snap_point';
 
 export class Canvas {
-  constructor(canvas) {
+  constructor(canvas, scale) {
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
     this.width = this.canvas.width;
