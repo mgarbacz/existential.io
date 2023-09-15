@@ -57,8 +57,6 @@ $(function() {
     $('#shortcuts dl > dt').removeClass('highlight-tool');
     $(e.currentTarget).addClass('highlight-tool');
 
-    console.log('toto');
-
     // Select the tool in the canvas
     const tool = $(e.currentTarget).data('tool');
     const action = $(e.currentTarget).data('action');
