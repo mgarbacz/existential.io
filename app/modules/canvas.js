@@ -52,8 +52,8 @@ export class Canvas {
 
   drawCanvas() {
     this.clearCanvas();
-    this.drawSnapPoints();
     this.drawShapes();
+    this.drawSnapPoints();
   }
 
   drawSnapPoints() {
