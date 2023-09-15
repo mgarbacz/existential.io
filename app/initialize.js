@@ -26,12 +26,24 @@ const handleKeyDown = function(keyCode, reporter) {
 
 $(function() {
   // Make sure canvas has proper height/width
-  const canvasElement = $('#guided-canvas');
-  canvasElement[0].width = canvasElement.width();
-  canvasElement[0].height = canvasElement.width() / 2;
+  const canvasEl = document.getElementById('guided-canvas');
+  const scale = window.devicePixelRatio;
+  const bounds = canvasEl.getBoundingClientRect();
+
+  // Set display size (css pixels)
+  canvasEl.style.width = `${Math.floor(bounds.width)}px`;
+  canvasEl.style.height = `${Math.floor(bounds.height)}px`;
+
+  // Set actual size in memory, scaled by pixel density
+  canvasEl.width = Math.floor(bounds.width * scale);
+  canvasEl.height = Math.floor(bounds.height * scale);
+
+  const ctx = canvasEl.getContext('2d');
+  ctx.scale(scale, scale);
+  ctx.setTransform(scale, 0, 0, scale, 0, 0);
+  const canvas = new Canvas(canvasEl, ctx, bounds);
 
   // Load up the DYD magic
-  const canvas = new Canvas(canvasElement[0]);
   canvas.init();
 
   // Listen for keyboard events to check if shortcut
@@ -44,8 +56,6 @@ $(function() {
     // Highlight chosen tool
     $('#shortcuts dl > dt').removeClass('highlight-tool');
     $(e.currentTarget).addClass('highlight-tool');
-
-    console.log('toto');
 
     // Select the tool in the canvas
     const tool = $(e.currentTarget).data('tool');

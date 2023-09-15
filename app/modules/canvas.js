@@ -2,12 +2,12 @@ import { Shape } from './shape';
 import { SnapPoint } from './snap_point';
 
 export class Canvas {
-  constructor(canvas) {
+  constructor(canvas, context, bounds) {
     this.canvas = canvas;
-    this.context = this.canvas.getContext('2d');
-    this.width = this.canvas.width;
-    this.height = this.canvas.height;
-    this.bounds = this.canvas.getBoundingClientRect();
+    this.context = context;
+    this.width = bounds.width;
+    this.height = bounds.height;
+    this.bounds = bounds;
     // Create 9 snap points
     this.snapPoints = [
       //              x               y                id
@@ -52,8 +52,8 @@ export class Canvas {
 
   drawCanvas() {
     this.clearCanvas();
-    this.drawSnapPoints();
     this.drawShapes();
+    this.drawSnapPoints();
   }
 
   drawSnapPoints() {
