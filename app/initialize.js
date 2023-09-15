@@ -41,7 +41,7 @@ $(function() {
   const ctx = canvasEl.getContext('2d');
   ctx.scale(scale, scale);
   ctx.setTransform(scale, 0, 0, scale, 0, 0);
-  const canvas = new Canvas(canvasEl, ctx);
+  const canvas = new Canvas(canvasEl, ctx, bounds);
 
   // Load up the DYD magic
   canvas.init();
