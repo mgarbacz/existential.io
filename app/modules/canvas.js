@@ -2,9 +2,9 @@ import { Shape } from './shape';
 import { SnapPoint } from './snap_point';
 
 export class Canvas {
-  constructor(canvas, scale) {
+  constructor(canvas, context) {
     this.canvas = canvas;
-    this.context = this.canvas.getContext('2d');
+    this.context = context;
     this.width = this.canvas.width;
     this.height = this.canvas.height;
     this.bounds = this.canvas.getBoundingClientRect();

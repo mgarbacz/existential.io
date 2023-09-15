@@ -26,21 +26,22 @@ const handleKeyDown = function(keyCode, reporter) {
 
 $(function() {
   // Make sure canvas has proper height/width
-  const canvasWrapper = $('#guided-canvas');
   const canvasEl = document.getElementById('guided-canvas');
   const scale = window.devicePixelRatio;
-  const canvasSize = canvasWrapper.width();
+  const bounds = canvasEl.getBoundingClientRect();
 
   // Set display size (css pixels)
-  canvasEl.style.width = `${Math.floor(canvasSize)}px`;
-  canvasEl.style.height = `${Math.floor(canvasSize / 2)}px`;
+  canvasEl.style.width = `${Math.floor(bounds.width)}px`;
+  canvasEl.style.height = `${Math.floor(bounds.height)}px`;
 
   // Set actual size in memory, scaled by pixel density
-  canvasEl.width = Math.floor(canvasSize * scale);
-  canvasEl.height = Math.floor(canvasSize / 2 * scale);
+  canvasEl.width = Math.floor(bounds.width * scale);
+  canvasEl.height = Math.floor(bounds.height * scale);
 
-  const canvas = new Canvas(canvasEl, scale);
-  canvas.context.scale(scale, scale);
+  const ctx = canvasEl.getContext('2d');
+  ctx.scale(scale, scale);
+  ctx.setTransform(scale, 0, 0, scale, 0, 0);
+  const canvas = new Canvas(canvasEl, ctx);
 
   // Load up the DYD magic
   canvas.init();
